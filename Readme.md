@@ -1,1 +1,0 @@
-Paftoga==========This package will solve AFT model in high-dimensional case. 
