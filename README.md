@@ -42,10 +42,11 @@ R version Frisbee Sailing . Use OpenBLAS(MINGW64).
 New pack Time
 
 | user | system | elapsed |
-|------|--------|---------|
+|:----:|:------:|:-------:|
 | 1.96 | 0.00   |         |
 
 Old pack Time
+
 | user  | system | elapsed |
 |-------|--------|---------|
 | 16.76 | 0.00   | 1.95    | 
