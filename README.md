@@ -38,16 +38,16 @@ cat('Check uniqueness rate(tol=1e-14):\t',100*sum(abs(re$prob-re3$prob)<1e-14)/l
 
 
 R version Frisbee Sailing . Use OpenBLAS(MINGW64).
+
 New pack Time
 
-| user |  system  | elapsed |
-  |:-----:|-----:|:-----:|
-  |1.96  |  0.00  |  1.95 |
-  
-  Old pack Time
+| user | system | elapsed |
+|------|--------|---------|
+| 1.96 | 0.00   |         |
 
-|user | system | elapsed  |
-  |:-----:|-----:|:-----:|
-  |16.76  |  0.00  | 16.77|
+Old pack Time
+| user  | system | elapsed |
+|-------|--------|---------|
+| 16.76 | 0.00   | 1.95    | 
   
   Check uniqueness rate(tol=1e-14):   100 %
