@@ -52,3 +52,31 @@ Old pack Time
 | 16.76 | 0.00   | 16.77  | 
   
   Check uniqueness rate(tol=1e-14):   100 %
+  
+With only six lines changes in el.cen.EM2, it is has similar behavior.
+
+```{r}
+library(survival)
+time <- cancer$time
+status <- cancer$status-1
+###for mean residual time
+N=10000
+y=rexp(N)
+x=rnorm(N)
+d=as.numeric(runif(N)>.3)
+
+coeef=lm.wfit(x=cbind(rep(1,N),x), y=y, w=emplik::WKM(x=y, d=d)$jump[rank(y)])$coef
+
+myfun7 <- function(y, xmat) {
+  temp1 <- y - ( coeef[1] + coeef[2] * xmat)
+  return( cbind( temp1, xmat*temp1) )
+}
+system.time(emplik::el.cen.EM2(y,d, fun=myfun7, mu=c(0,0),xmat=x))
+system.time(emplik3::el.cen.EM2(y,d, fun=myfun7, mu=c(0,0),xmat=x))
+```
+
+| Type  | user	| system	| elapsed |
+|-------|-------|---------|---------|
+| emplik	| 22.61	| 1.65	| 14.66   |
+| emplik3	| 6.39	| 1.27	| 2.52    |
+
