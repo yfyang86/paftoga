@@ -43,7 +43,7 @@ New pack Time
 
 | user | system | elapsed |
 |:----:|:------:|:-------:|
-| 1.96 | 0.00   |         |
+| 1.96 | 0.00   | 1.95    |
 
 Old pack Time
 
