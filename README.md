@@ -6,7 +6,7 @@ This package will solve AFT model in high-dimensional case.
 
 emplik3
 ====
-Paftoga may use several function provided in [emplik]: cran.r-project.org/web/packages/emplik "emplik". After proper profiling, at least in one dimensional case of the hypothesis testing program *el.cen.EM*, the computational speed could be promoted dramaticly using C/C++. One doen't need to rewrite it in pure C/C++ code.
+Paftoga may use several functions provided in [emplik]: cran.r-project.org/web/packages/emplik "emplik". After proper profiling, at least in one dimensional case of the hypothesis testing program *el.cen.EM*, the computational speed could be promoted dramaticly using C/C++. One doen't need to rewrite it in pure C/C++ code.
 
 - I provide a `cumsumsurv` which could calculate `rev(cumsum(rev(x)))` in C code.    
 - A C-code uniroot funtion is provided.
