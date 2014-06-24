@@ -49,6 +49,6 @@ Old pack Time
 
 | user  | system | elapsed |
 |-------|--------|---------|
-| 16.76 | 0.00   | 1.95    | 
+| 16.76 | 0.00   | 16.77  | 
   
   Check uniqueness rate(tol=1e-14):   100 %
