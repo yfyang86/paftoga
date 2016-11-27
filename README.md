@@ -80,3 +80,47 @@ system.time(emplik3::el.cen.EM2(y,d, fun=myfun7, mu=c(0,0),xmat=x))
 | emplik	| 22.61	| 1.65	| 14.66   |
 | emplik3	| 6.39	| 1.27	| 2.52    |
 
+
+#HD-AFT
+
+Developing
+
+```R
+set.seed(65535)
+p = 800
+n = 1000
+p.zero= p-ceiling(log(n)^1.5)# 600-32
+ST=1;
+
+using.glmnet=T
+using.oga=F
+using.inteceptstragtegy=F
+
+  X=matrix(rnorm(p*n)/4,ncol=p);
+  beta=4*runif(p)-2
+  beta=(beta+0.1*sign(beta))
+  zero.loc=sample(1:p,p.zero);
+  #beta[zero.loc]=runif(p.zero,-.002,.002)
+  beta[zero.loc]=0
+  sigma=2
+  #eps= - sigma*log(rexp(n)) # exp: std Gumbel * sigma
+  eps= - sigma*rnorm(n) # exp: std Gumbel * sigma  
+  f_Xst <- function(x) t(t(x)-apply(X,2,mean))
+  X= f_Xst(X)
+  Y= X%*%beta + eps
+  cen=rexp(n,rate=1)*2+abs(rt(n=n,df=10))*2
+  YC=apply(cbind(cen,Y),1,min)
+  delta=as.double( YC == Y);
+  delta[1]=1;
+  sigma0=1;
+  scale=2;
+  Y=Y/scale
+  YC=YC/scale
+  beta0=rep(.2,p);
+  beta.real<-beta/scale
+```
+
+Simulation result:
+
+![SIMU1000](./figure/plot_zoom_png.png)
+
